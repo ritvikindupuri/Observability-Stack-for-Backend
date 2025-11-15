@@ -1,0 +1,54 @@
+# main compose file for Prometheus, Grafana, and Telegraf, all on the observability Docker network.
+
+version: "3.9"
+
+networks:
+  observability:
+    external: true   # created with: docker network create observability
+
+volumes:
+  grafana_data:
+  prometheus_data:
+
+services:
+  # ---------------- Prometheus ----------------
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    networks:
+      - observability
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    restart: unless-stopped
+
+  # ---------------- Grafana ----------------
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    networks:
+      - observability
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      # (Optional) If you add provisioning later:
+      # - ./grafana/provisioning:/etc/grafana/provisioning
+    restart: unless-stopped
+
+  # ---------------- Telegraf ----------------
+  telegraf:
+    image: telegraf:1.30
+    container_name: telegraf
+    networks:
+      - observability
+    ports:
+      - "9273:9273"      # Prometheus scrapes this
+    volumes:
+      - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    restart: unless-stopped
