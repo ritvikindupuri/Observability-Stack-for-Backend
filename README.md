@@ -48,8 +48,11 @@ Before monitoring *other* services, it's crucial to monitor the monitor. This da
 * **Memory Profile:** Tracks resident and virtual memory, showing stable usage without leaks.
 * **Head Chunks & Blocks:** Confirms data is being ingested, compacted, and stored correctly.
 
-![Prometheus Stats Dashboard](.assets/Prometheus%20Stats%20Dashboard.png)
-*Figure 2: Prometheus service health and meta-monitoring dashboard*
+<p align="center">
+  <img src=".assets/Prometheus%20Stats%20Dashboard.png" alt="Prometheus Stats Dashboard">
+  <br>
+  <em>Figure 2: Prometheus service health and meta-monitoring dashboard</em>
+</p>
 
 ### 2. Host-Level Monitoring: Firewall (Node Exporter)
 
@@ -59,15 +62,21 @@ Node Exporter was used to gain deep visibility into the performance of a critica
 
 This panel tracks the 1-minute, 5-minute, and 15-minute system load averages. As shown, the load consistently remains **below 1.0** (peaking around 0.7), which indicates a healthy system that is not under significant CPU pressure or I/O wait.
 
-![Node Exporter Firewall Load Graph](.assets/Node%20Exporter%20Firewall%20Load%20Graph.png)
-*Figure 3: System load averages for the firewall host*
+<p align="center">
+  <img src=".assets/Node%20Exporter%20Firewall%20Load%20Graph.png" alt="Node Exporter Firewall Load Graph">
+  <br>
+  <em>Figure 3: System load averages for the firewall host</em>
+</p>
 
 #### Network Throughput
 
 This dashboard monitors the real-time incoming (RX) and outgoing (TX) network traffic. The system clearly **captured a significant network event around 15:42**, logging an outgoing spike of **~380KB/s** and an incoming spike of **~350KB/s**. This demonstrates the dashboard's effectiveness in identifying and correlating performance anomalies.
 
-![Network Throughput TXRX](.assets/Network%20Throughput%20TXRX%20(Node%20exporter).png)
-*Figure 4: Network throughput (TX/RX) for the firewall host, capturing a spike*
+<p align="center">
+  <img src=".assets/Network%20Throughput%20TXRX%20(Node%20exporter).png" alt="Network Throughput TXRX">
+  <br>
+  <em>Figure 4: Network throughput (TX/RX) for the firewall host, capturing a spike</em>
+</p>
 
 ### 3. Host-Level Telemetry (Telegraf)
 
@@ -76,8 +85,11 @@ Telegraf was integrated to provide an alternative and highly granular method for
 * **Memory Usage (Purple):** The most critical metric on this graph, showing memory usage is exceptionally stable, holding steady at **~2.91GB**. This is a key indicator of a healthy service with no memory leaks.
 * **CPU Time (Green):** The `cpu-total` metric shows low and consistent CPU activity, correlating with the stable service.
 
-![Telegraf System Overview](.assets/Telegraph%2tSystem%20Overview.png)
-*Figure 5: Telegraf dashboard showing stable memory and CPU usage*
+<p align="center">
+  <img src=".assets/Telegraph%20System%20Overview.png" alt="Telegraf System Overview">
+  <br>
+  <em>Figure 5: Telegraf dashboard showing stable memory and CPU usage</em>
+</p>
 
 ---
 
