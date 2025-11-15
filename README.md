@@ -8,7 +8,7 @@ The primary goal was to provide the team with clear, actionable visibility into 
 
 This project successfully strengthened operational reliability for the platform and established a repeatable monitoring foundation that supports debugging, capacity planning, and long-term backend stability.
 
-## 🚀 Core Technologies
+##  Core Technologies
 
 * **Prometheus:** Time-series database & monitoring (scraping, storage, alerting)
 * **Grafana:** Visualization & dashboarding
@@ -19,7 +19,7 @@ This project successfully strengthened operational reliability for the platform 
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 The architecture is built on a standard, highly effective "scrape" model.
 
@@ -35,7 +35,7 @@ The architecture is built on a standard, highly effective "scrape" model.
 
 ---
 
-## 📊 Dashboards & Key Metrics
+##  Dashboards & Key Metrics
 
 Several dashboards were created to monitor the full stack, from the health of the monitoring system itself to granular host-level performance.
 
