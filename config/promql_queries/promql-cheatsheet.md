@@ -16,5 +16,4 @@ rate(diskio_read_bytes[5m])
 4.4 Disk Space Usage (Node Exporter, per filesystem)
 
 
-100 * (1 - (node_filesystem_avail_bytes{fstype!~"tmpfs|overlay|squashfs"} 
-            / node_filesystem_size_bytes{fstype!~"tmpfs|overlay|squashfs"}))
+100 * (1 - (node_filesystem_avail_bytes{fstype!~"tmpfs|overlay|squashfs"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay|squashfs"}))
