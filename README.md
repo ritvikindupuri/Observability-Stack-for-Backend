@@ -8,18 +8,18 @@ The primary goal was to provide the team with clear, actionable visibility into 
 
 This project successfully strengthened operational reliability for the platform and established a repeatable monitoring foundation that supports debugging, capacity planning, and long-term backend stability.
 
-##  Core Technologies
+## 🚀 Core Technologies
 
 * **Prometheus:** Time-series database & monitoring (scraping, storage, alerting)
 * **Grafana:** Visualization & dashboarding
-* **Node Exporter:** Exposes hardware and OS metrics from *nix hosts
+* **Node Exporter:** Exposes hardware and OS metrics from \*nix hosts
 * **Telegraf:** Agent for collecting, processing, and aggregating host-level telemetry
 * **Docker:** Containerization for all services
 * **Coolify:** Deployment and service provisioning
 
 ---
 
-##  System Architecture
+## 🏗️ System Architecture
 
 The architecture is built on a standard, highly effective "scrape" model.
 
@@ -31,7 +31,7 @@ The architecture is built on a standard, highly effective "scrape" model.
 
 ---
 
-##  Dashboards & Key Metrics
+## 📊 Dashboards & Key Metrics
 
 Several dashboards were created to monitor the full stack, from the health of the monitoring system itself to granular host-level performance.
 
@@ -51,11 +51,13 @@ Before monitoring *other* services, it's crucial to monitor the monitor. This da
 Node Exporter was used to gain deep visibility into the performance of a critical firewall host.
 
 #### System Load
+
 This panel tracks the 1-minute, 5-minute, and 15-minute system load averages. As shown, the load consistently remains **below 1.0** (peaking around 0.7), which indicates a healthy system that is not under significant CPU pressure or I/O wait.
 
 ![Node Exporter Firewall Load Graph](.assets/Node%20Exporter%20Firewall%20Load%20Graph.png)
 
 #### Network Throughput
+
 This dashboard monitors the real-time incoming (RX) and outgoing (TX) network traffic. The system clearly **captured a significant network event around 15:42**, logging an outgoing spike of **~380KB/s** and an incoming spike of **~350KB/s**. This demonstrates the dashboard's effectiveness in identifying and correlating performance anomalies.
 
 ![Network Throughput TXRX](.assets/Network%20Throughput%20TXRX%20(Node%20exporter).png)
@@ -68,3 +70,13 @@ Telegraf was integrated to provide an alternative and highly granular method for
 * **CPU Time (Green):** The `cpu-total` metric shows low and consistent CPU activity, correlating with the stable service.
 
 ![Telegraf System Overview](.assets/Telegraph%20System%20Overview.png)
+
+---
+
+## Conclusion & Impact
+
+This project successfully implemented a robust, end-to-end observability stack for Boilerexams, moving the platform from a "black box" to a fully monitored system.
+
+By integrating Prometheus, Grafana, and multiple exporters, this stack provides a single pane of glass for backend health. The dashboards have already proven their value by **validating stable memory usage**, identifying normal system load patterns, and **successfully capturing anomalous network events** that were previously invisible.
+
+The result is a more resilient and reliable platform. The team is now equipped with the critical, real-time data needed for proactive debugging, intelligent capacity planning, and ensuring long-term backend stability.
