@@ -8,7 +8,7 @@ The primary goal was to provide the team with clear, actionable visibility into 
 
 This project successfully strengthened operational reliability for the platform and established a repeatable monitoring foundation that supports debugging, capacity planning, and long-term backend stability.
 
-##  Core Technologies
+## 🚀 Core Technologies
 
 * **Prometheus:** Time-series database & monitoring (scraping, storage, alerting)
 * **Grafana:** Visualization & dashboarding
@@ -19,7 +19,7 @@ This project successfully strengthened operational reliability for the platform 
 
 ---
 
-##  System Architecture
+## 🏗️ System Architecture
 
 The architecture is built on a standard, highly effective "scrape" model.
 
@@ -27,11 +27,15 @@ The architecture is built on a standard, highly effective "scrape" model.
 * **Prometheus (Scraper):** The central server (`:9090`) is configured to scrape these endpoints at a regular interval (e.g., every 15 seconds), pulling in the metrics and storing them.
 * **Grafana (Visualizer):** The dashboarding layer (`:3000`) connects to Prometheus as a data source. It uses PromQL (Prometheus Query Language) to query the time-series data and render the graphs and panels seen below.
 
-![System Architecture](.assets/System%20Architecture.png)
+<p align="center">
+  <img src=".assets/System%20Architecture.png" alt="System Architecture Diagram">
+  <br>
+  <em>Figure 1: The observability stack architecture</em>
+</p>
 
 ---
 
-##  Dashboards & Key Metrics
+## 📊 Dashboards & Key Metrics
 
 Several dashboards were created to monitor the full stack, from the health of the monitoring system itself to granular host-level performance.
 
@@ -45,6 +49,7 @@ Before monitoring *other* services, it's crucial to monitor the monitor. This da
 * **Head Chunks & Blocks:** Confirms data is being ingested, compacted, and stored correctly.
 
 ![Prometheus Stats Dashboard](.assets/Prometheus%20Stats%20Dashboard.png)
+*Figure 2: Prometheus service health and meta-monitoring dashboard*
 
 ### 2. Host-Level Monitoring: Firewall (Node Exporter)
 
@@ -55,12 +60,14 @@ Node Exporter was used to gain deep visibility into the performance of a critica
 This panel tracks the 1-minute, 5-minute, and 15-minute system load averages. As shown, the load consistently remains **below 1.0** (peaking around 0.7), which indicates a healthy system that is not under significant CPU pressure or I/O wait.
 
 ![Node Exporter Firewall Load Graph](.assets/Node%20Exporter%20Firewall%20Load%20Graph.png)
+*Figure 3: System load averages for the firewall host*
 
 #### Network Throughput
 
 This dashboard monitors the real-time incoming (RX) and outgoing (TX) network traffic. The system clearly **captured a significant network event around 15:42**, logging an outgoing spike of **~380KB/s** and an incoming spike of **~350KB/s**. This demonstrates the dashboard's effectiveness in identifying and correlating performance anomalies.
 
 ![Network Throughput TXRX](.assets/Network%20Throughput%20TXRX%20(Node%20exporter).png)
+*Figure 4: Network throughput (TX/RX) for the firewall host, capturing a spike*
 
 ### 3. Host-Level Telemetry (Telegraf)
 
@@ -69,7 +76,8 @@ Telegraf was integrated to provide an alternative and highly granular method for
 * **Memory Usage (Purple):** The most critical metric on this graph, showing memory usage is exceptionally stable, holding steady at **~2.91GB**. This is a key indicator of a healthy service with no memory leaks.
 * **CPU Time (Green):** The `cpu-total` metric shows low and consistent CPU activity, correlating with the stable service.
 
-![Telegraf System Overview](.assets/Telegraph%20System%20Overview.png)
+![Telegraf System Overview](.assets/Telegraph%2tSystem%20Overview.png)
+*Figure 5: Telegraf dashboard showing stable memory and CPU usage*
 
 ---
 
