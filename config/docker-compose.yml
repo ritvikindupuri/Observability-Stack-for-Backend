@@ -13,7 +13,7 @@ volumes:
 services:
   # ---------------- Prometheus ----------------
   prometheus:
-    image: prom/prometheus:latest
+    image: prom/prometheus:v3.9.1@sha256:1f0f50f06acaceb0f5670d2c8a658a599affe7b0d8e78b898c1035653849a702
     container_name: prometheus
     networks:
       - observability
@@ -26,7 +26,7 @@ services:
 
   # ---------------- Grafana ----------------
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:13.0.2@sha256:5dad0df181cb644a14e13617b913b261a54f7d4fd4510721dba420929f35bea2
     container_name: grafana
     networks:
       - observability
@@ -43,7 +43,7 @@ services:
 
   # ---------------- Telegraf ----------------
   telegraf:
-    image: telegraf:1.30
+    image: telegraf:1.30.3@sha256:a05b4b4ce2678bfc94e6ccfcbaebc4ce1d30906c1d93ee6595522e5519dc31a6
     container_name: telegraf
     networks:
       - observability
