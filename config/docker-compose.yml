@@ -32,9 +32,8 @@ services:
       - observability
     ports:
       - "3000:3000"
-    environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+    env_file:
+      - ../.env
     volumes:
       - grafana_data:/var/lib/grafana
       # (Optional) If you add provisioning later:
